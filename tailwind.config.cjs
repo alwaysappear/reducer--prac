@@ -2,7 +2,14 @@
 module.exports = {
   content: ['./src/**/.jsx'],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'pry-clr-0': 'rgb(241, 245, 248)',
+      },
+      fontFamily: {
+        cabin: ['Cabin', 'sans-serif']
+      }
+    },
   },
   plugins: [],
 }
