@@ -17,7 +17,7 @@ function App() {
   const submit = (e) => {
     e.preventDefault()
     const setID = new Date().getTime().toString()
-    const newItem = { id: setID, name }
+    const newItem = { id: setID, name: name.toLowerCase() }
     if (name) {
       dispatch({ type: 'ADD', payload: newItem })
     }
@@ -29,19 +29,22 @@ function App() {
     dispatch({ type: 'CLOSE_MODAL' })
   }
 
+  const deleteItem = id => {
+    const newItems = state.items.filter(item => item.id !== id)
+    dispatch({ type: 'DELETE', payload: newItems })
+  }
+
   return (
     <main>
       {state.modal && <ModalContent content={state.modalContent} close={closeModal} />}
       <form onSubmit={(e) => submit(e)}>
-        <div>
-          <input type="text" ref={nameEl} autoFocus
-            value={name} onChange={(e) => setName(e.target.value)} />
-          <button className="btn-add">add</button>
-        </div>
+        <input type="text" ref={nameEl} autoFocus
+          value={name} onChange={(e) => setName(e.target.value)} />
+        <button className="btn-add">add</button>
       </form>
       <section className="item-container">
         {state.items.map(item => (
-          <Item item={item} key={item.id} />
+          <Item item={item} key={item.id} remove={deleteItem} />
         ))}
       </section>
     </main>

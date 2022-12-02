@@ -1,9 +1,9 @@
 const reducer = (state, action) => {
-    const newItem = [...state.items, action.payload]
+    const newItems = [...state.items, action.payload]
     if (action.type === "ADD") {
         return {
             ...state,
-            items: newItem,
+            items: newItems,
             modal: true,
             modalContent: 'Item added successfully.'
         }
@@ -13,6 +13,15 @@ const reducer = (state, action) => {
             ...state,
             mdoal: false,
             modalContent: ''
+        }
+    }
+
+    if (action.type === "DELETE") {
+        return {
+            ...state,
+            items: action.payload,
+            modal: true,
+            modalContent: 'Item removed'
         }
     }
 
