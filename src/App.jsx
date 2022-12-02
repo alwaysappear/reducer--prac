@@ -17,7 +17,7 @@ function App() {
   const submit = (e) => {
     e.preventDefault()
     const setID = new Date().getTime().toString()
-    const newItem = { id: setID, name: name.toLowerCase() }
+    const newItem = { id: setID, name: name.toLowerCase(), done: false }
     if (name) {
       dispatch({ type: 'ADD', payload: newItem })
     }
@@ -34,6 +34,11 @@ function App() {
     dispatch({ type: 'DELETE', payload: newItems })
   }
 
+  const handleDone = id => {
+    const newItems = state.items.map(item => item.id === id ? { ...item, done: !item.done } : { item })
+    dispatch({ type: 'DONE', payload: newItems })
+  }
+
   return (
     <main>
       {state.modal && <ModalContent content={state.modalContent} close={closeModal} />}
@@ -44,7 +49,8 @@ function App() {
       </form>
       <section className="item-container">
         {state.items.map(item => (
-          <Item item={item} key={item.id} remove={deleteItem} />
+          <Item item={item} key={item.id}
+            remove={deleteItem} handleDone={handleDone} />
         ))}
       </section>
     </main>
