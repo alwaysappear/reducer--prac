@@ -6,6 +6,10 @@ body {
   @apply bg-pry-clr-0 font-cabin
 }
 
+.trans-0 {
+  @apply transition-all duration-300 ease-linear;
+}
+
 #root {
   @apply w-full grid place-items-center;
 }
@@ -13,4 +17,25 @@ body {
 main {
   @apply bg-white min-w-[300px] py-7 px-9 rounded-md mt-20;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+form {
+  @apply flex gap-5;
+}
+
+form input {
+  @apply bg-pry-clr-0 px-1 py-0.5 rounded-lg outline-2
+}
+
+button,
+.item h3 {
+  @apply capitalize tracking-wider;
+}
+
+.btn-add {
+  @apply px-3 py-0.5 rounded-md text-pry-clr-0 bg-pry-clr-1;
+}
+
+.btn-add:hover {
+  @apply text-black bg-pry-clr-2 trans-0
 }
