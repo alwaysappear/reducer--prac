@@ -8,6 +8,7 @@ const reducer = (state, action) => {
             modalContent: 'Item added successfully.'
         }
     }
+
     if (action.type === "CLOSE_MODAL") {
         return {
             ...state,
@@ -22,6 +23,15 @@ const reducer = (state, action) => {
             items: action.payload,
             modal: true,
             modalContent: 'Item removed'
+        }
+    }
+
+    if (action.type === "DONE") {
+        return {
+            ...state,
+            items: action.payload,
+            modal: true,
+            modalContent: "Task done"
         }
     }
 
