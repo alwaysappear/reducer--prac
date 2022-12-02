@@ -15,12 +15,12 @@ body {
 }
 
 main {
-  @apply bg-white min-w-[300px] py-7 px-9 rounded-md mt-20;
+  @apply bg-white min-w-[300px] py-7 px-9 rounded-md mt-20 text-center;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
 form {
-  @apply flex gap-5;
+  @apply flex gap-5 mt-5;
 }
 
 form input {
@@ -37,5 +37,25 @@ button,
 }
 
 .btn-add:hover {
-  @apply text-black bg-pry-clr-2 trans-0
+  @apply text-pry-clr-3 bg-pry-clr-2 trans-0
+}
+
+.item-container {
+  @apply flex flex-col gap-3 mt-10;
+}
+
+.item {
+  @apply flex justify-between w-full bg-pry-clr-0 px-3 py-1 rounded-md
+}
+
+.item div {
+  @apply flex gap-10 text-lg text-pry-clr-3
+}
+
+.btn-rm {
+  @apply text-red-500 trans-0;
+}
+
+.btn-rm:hover {
+  @apply text-red-800;
 }
