@@ -5,3 +5,12 @@
 body {
   @apply bg-pry-clr-0 font-cabin
 }
+
+#root {
+  @apply w-full grid place-items-center;
+}
+
+main {
+  @apply bg-white min-w-[300px] py-7 px-9 rounded-md mt-20;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
